@@ -250,6 +250,9 @@ prerequisite : $(COOKIE_DIR) pre-everything
 # the $(DOWNLOAD_DIR)/% target
 FETCH_TARGETS ?=  $(addprefix $(DOWNLOAD_DIR)/,$(SOFTWARE_CHECKSUM_FILES)) $(addprefix $(DOWNLOAD_DIR)/,$(SOFTWARE_DIST_FILES))
 
+fetch-list:
+	@echo $(FETCH_TARGETS)
+
 fetch : prerequisite $(DOWNLOAD_DIR) $(PARTIAL_DIR) $(COOKIE_DIR) pre-fetch $(FETCH_TARGETS) post-fetch
 	$(DISPLAY_COMPLETED_TARGET_NAME)
 	$(TARGET_DONE)
